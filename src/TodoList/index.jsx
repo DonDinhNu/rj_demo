@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import ListTag from '../ListTag';
 
 const TodoList = ({list}) => (
   <div>
@@ -8,7 +9,7 @@ const TodoList = ({list}) => (
         {list.map((todo) => (
           <li>
             <b>{todo.title}</b>
-            {todo.tags.map(tag => <div>{tag}</div>)}
+            <ListTag tags={todo.tags}/>
           </li>
         )
         )}

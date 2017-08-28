@@ -13,9 +13,9 @@ const App = () => (
     <AppleOrOrange isApple={true}/>
     <AppleOrOrange isApple={false}/>
     <CarList cars={['Audi', 'Mes', 'Toyota']}/>
-    <NewTodo tags={[]}/>
+    <NewTodo tags={['Tiramisu', 'Doreyaky', 'Red Forest']}/>
     <TodoList list={[
-        {title: 'Cake', tags: ['Tiramisu', 'Doreyaky']},
+        {title: 'Cake', tags: ['Tiramisu', 'Doreyaky', 'Red Forest']},
         {title: 'Car', tags: ['Toyota', 'Mes', 'Audi']}
       ]}/>
   </div>

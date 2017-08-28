@@ -1,18 +1,19 @@
 import React from 'react';
 import './index.css';
+import ListTag from '../ListTag';
 
 const NewTodo = ({tags}) => (
-  <from>
+  <form>
     <label> Title: </label>
     <input type='text' name='title' placeholder='Title please'/>
     <br/>
     <div className='tags'>
       <label> Tags: </label>
-      {tags.map(tag => <div>{tag}</div>)}
+      <ListTag tags={tags}/>
       <input type='text' name='title' placeholder='+ New tag'/>
-      <input type='submit' value='Create New Tag'/>
     </div>
-  </from>
-)
+    <input type='submit' value='Create New Tag'/>
+  </form>
+);
 
-export default NewTodo
+export default NewTodo;
