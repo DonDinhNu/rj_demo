@@ -5,10 +5,15 @@ import {uniq, path} from 'lodash/fp';
 // Define action
 const ADD_TAG = 'NewTodo/addTag';
 const REMOVE_TAG = 'NewTodo/removeTag';
+const ADD_TITLE = 'NewTodo/addTitle';
 
 export const addTagAction = createAction(ADD_TAG);
-export const tagsSelector = path('newTodo.tags');
 export const removeLatestTag = createAction(REMOVE_TAG);
+export const addTitleAction = createAction(ADD_TITLE);
+
+export const tagsSelector = path('newTodo.tags');
+export const titleSelector = path('newTodo.title');
+
 
 const tags = handleActions(
   {
@@ -18,8 +23,16 @@ const tags = handleActions(
   []
 );
 
+const title = handleActions(
+  {
+    [ADD_TITLE]: (state, action) => action.payload
+  },
+  ''
+)
+
 const reducer = combineReducers({
   tags,
+  title,
 });
 
 export default {newTodo: reducer}
