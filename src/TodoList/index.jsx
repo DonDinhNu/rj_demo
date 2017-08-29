@@ -6,8 +6,8 @@ const TodoList = ({list}) => (
   <div>
     <h1>Todo List</h1>
     <ol className='list'>
-        {list.map((todo) => (
-          <li>
+        {list.map((todo, index) => (
+          <li key={index}>
             <b>{todo.title}</b>
             <ListTag tags={todo.tags}/>
           </li>

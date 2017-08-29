@@ -1,4 +1,5 @@
 import {createStore, compose} from 'redux';
+import rootReducer from './rootReducer';
 
 const enhancers = [
   window.devToolsExtension && window.devToolsExtension(),
@@ -8,7 +9,7 @@ const noop = () => {};
 
 export const storeCreator = () => {
   const store = createStore(
-    noop,
+    rootReducer,
     compose(...enhancers),
   );
   return store;
