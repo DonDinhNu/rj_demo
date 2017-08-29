@@ -1,0 +1,6 @@
+// Add redux to react
+yarn add react-redux
+yarn add redux-devtools
+yarn add redux-actions
+yarn add lodash
+
