@@ -4,3 +4,6 @@ yarn add redux-devtools
 yarn add redux-actions
 yarn add lodash
 
+// Index put action through dispatch -> to create on state
+// User mapStateToProps to get data from state.
+
