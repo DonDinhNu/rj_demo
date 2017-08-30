@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import {combineReducers} from 'redux';
 import {uniq, path} from 'lodash/fp';
-import {ADD_TODO, addTodoList} from '../TodoList/state';
+import {addTodoList} from '../TodoList/state';
 
 // Define action
 const ADD_TAG = 'NewTodo/addTag';
@@ -50,6 +50,8 @@ export const successEpic = action$ =>
   action$.ofType(SUCCESS)
     .do(console.log)
     .map(action => addTodoList(action.payload));
+    // Use map will be reuse param (payload) of previous action.
+    // In this case, map has action of SUCCESS
 
 const reducer = combineReducers({
   tags,
