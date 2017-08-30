@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {todosSeletor} from './state';
+
 import './index.css';
 import ListTag from '../ListTag';
 
@@ -17,4 +20,11 @@ const TodoList = ({list}) => (
   </div>
 )
 
-export default TodoList;
+const mappStateToProps = (state) => (
+  {
+    list: todosSeletor(state),
+  }
+)
+const enhance = connect(mappStateToProps, null);
+
+export default enhance(TodoList);

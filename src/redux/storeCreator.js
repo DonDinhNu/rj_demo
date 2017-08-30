@@ -1,9 +1,14 @@
-import {createStore, compose} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
 import rootReducer from './rootReducer';
+import { rootEpic } from './rootEpic';
+import { createEpicMiddleware } from 'redux-observable';
+import {compact} from 'lodash';
 
-const enhancers = [
+const epicMiddleware = createEpicMiddleware(rootEpic);
+const enhancers = compact([
+  applyMiddleware(epicMiddleware),
   window.devToolsExtension && window.devToolsExtension(),
-];
+]);
 
 const noop = () => {};
 
