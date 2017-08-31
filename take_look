@@ -7,3 +7,25 @@ yarn add lodash
 // Index put action through dispatch -> to create on state
 // User mapStateToProps to get data from state.
 
+# Store
+http://redux.js.org/docs/basics/Store.html
+A store holds the whole state tree of your application.
+
+# State
+http://redux.js.org/docs/Glossary.html#state
+State (also called the state tree) is a broad term
+
+# Action
+Action to change state
+Action is only way to get data into the state
+
+# Reducer
+Reducer is a function
+type Reducer<S, A> = (state: S, action: A) => S
+
+# Dispatching Function
+Dispatch sends an action to the store's reducer.
+
+# Middleware
+Middleware wraps the base dispatch function. It allows the dispatch function to handle async actions in addition to actions
+
