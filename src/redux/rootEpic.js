@@ -1,6 +1,7 @@
 import { combineEpics } from 'redux-observable';
-import {successEpic} from '../NewTodo/state';
+import {successEpic, fetchOrgEpic} from '../NewTodo/state';
 
 export const rootEpic = combineEpics(
   successEpic,
+  fetchOrgEpic,
 );

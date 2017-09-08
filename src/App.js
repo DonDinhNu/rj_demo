@@ -15,6 +15,7 @@ const App = () => (
     <div>
       <NewTodo/>
       <TodoList/>
+      <CarList cars = {[]}/>
       </div>
   </Provider>
 )

@@ -2,15 +2,16 @@ import React from 'react';
 import { Observable } from 'rxjs';
 
 import {connect} from 'react-redux';
-import {addTagAction, addTitleAction, removeLatestTag, tagsSelector, titleSelector, resetFrom, handleSucess, messageSelector} from './state';
+import {addTagAction, addTitleAction, removeLatestTag, fetchOrg, tagsSelector, titleSelector, resetFrom, handleSucess, messageSelector, fetchOrgAction, ogrNameSelector} from './state';
 import {addTodoList} from '../TodoList/state';
 
 import './index.css';
 import ListTag from '../ListTag';
 
-const NewTodo = ({tags, message, title, addTag, removeLatestTag, addTitle, createTodo}) => (
+const NewTodo = ({tags, message, orgName, title, fetchOrg, addTag, removeLatestTag, addTitle, createTodo}) => (
   <div>
     <p>{message}</p>
+    <p>{orgName}</p>
     <label> Title: </label>
 
   <input type='text' name='title' placeholder='Title please' onChange={addTitle} value={title}/>
@@ -21,6 +22,7 @@ const NewTodo = ({tags, message, title, addTag, removeLatestTag, addTitle, creat
       <input type='text' name='title' placeholder='+ New tag' onKeyPress={addTag}/>
     </div>
     <input type='button' value='Remove' onClick={removeLatestTag}/>
+    <input type='button' value='FetchOrg' onClick={fetchOrg}/>
     <input type='submit' value='Create Todo List' onClick={e => createTodo(tags, title)}/>
   </div>
 );
@@ -45,14 +47,18 @@ const mapDispatchToProps = dispatch => ({
   createTodo: (tags, title) => {
     dispatch(resetFrom());
     dispatch(handleSucess({tags, title}));
+  },
+
+  fetchOrg:() => {
+    dispatch(fetchOrgAction());
   }
 });
-
 
 const mappStateToProps = state => ({
   tags: tagsSelector(state),
   title: titleSelector(state),
   message: messageSelector(state),
+  orgName: ogrNameSelector(state)
 }
 );
 
