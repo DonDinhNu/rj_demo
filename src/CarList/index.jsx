@@ -9,7 +9,7 @@ const CarList = ({cars, fetchCars}) => (
     <p> Example for use Redux Observable to call api</p>
     <input type='button' value='Fetch Cars List From API' onClick={fetchCars}/>
     <ol>
-      {cars.map(car => <li key={car}>{car}</li>)}
+      {cars.map(car => <li key={car.id}>{car.name}</li>)}
     </ol>
   </div>
 );
@@ -20,10 +20,12 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-const mappStateToProps = state => ({
-  cars: carsSelector(state),
-});
+const mapStateToProps = state => {
+  return {
+    cars: carsSelector(state),
+  }
+};
 
-const enhance = connect(null, mapDispatchToProps);
+const enhance = connect(mapStateToProps, mapDispatchToProps);
 
 export default enhance(CarList);
